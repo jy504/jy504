@@ -1,0 +1,75 @@
+---
+title: "HW Week 2"
+output:
+  html_document: default
+  pdf_document: default
+date: "2023-09-25"
+---
+
+```{r}
+library(readxl)
+Typical_Employee_Survey_Data <- read_excel("/Users/jasperyeh/Downloads/Typical_Employee_Survey_Data.xlsx")
+
+names(Typical_Employee_Survey_Data) <- c("Age","Gender","Job Satisfaction","Most Important Characteristic","Years Worked","Likeliness For Promotion","Decision Making","Budgetary Decisions","Pride","Likeliness To Stay","Relations")
+
+fivenum(Typical_Employee_Survey_Data$Age)
+fivenum(Typical_Employee_Survey_Data$Gender)
+fivenum(Typical_Employee_Survey_Data$`Job Satisfaction`)
+fivenum(Typical_Employee_Survey_Data$`Most Important Characteristic`)
+fivenum(Typical_Employee_Survey_Data$`Years Worked`)
+fivenum(Typical_Employee_Survey_Data$`Likeliness For Promotion`)
+fivenum(Typical_Employee_Survey_Data$`Decision Making`)
+fivenum(Typical_Employee_Survey_Data$`Budgetary Decisions`)
+fivenum(Typical_Employee_Survey_Data$Pride)
+fivenum(Typical_Employee_Survey_Data$`Likeliness To Stay`)
+fivenum(Typical_Employee_Survey_Data$Relations)
+
+boxplot.stats(Typical_Employee_Survey_Data$Age)
+boxplot.stats(Typical_Employee_Survey_Data$Gender)
+boxplot.stats(Typical_Employee_Survey_Data$`Job Satisfaction`)
+boxplot.stats(Typical_Employee_Survey_Data$`Most Important Characteristic`)
+boxplot.stats(Typical_Employee_Survey_Data$`Years Worked`)
+boxplot.stats(Typical_Employee_Survey_Data$`Likeliness For Promotion`)
+boxplot.stats(Typical_Employee_Survey_Data$`Decision Making`)
+boxplot.stats(Typical_Employee_Survey_Data$`Budgetary Decisions`)
+boxplot.stats(Typical_Employee_Survey_Data$Pride)
+boxplot.stats(Typical_Employee_Survey_Data$`Likeliness To Stay`)
+boxplot.stats(Typical_Employee_Survey_Data$Relations)
+
+Typical_Employee_Survey_Data$Gender <- as.factor(Typical_Employee_Survey_Data$Gender)
+Typical_Employee_Survey_Data$`Job Satisfaction` <- as.factor(Typical_Employee_Survey_Data$`Job Satisfaction`)
+Typical_Employee_Survey_Data$`Most Important Characteristic` <- as.factor(Typical_Employee_Survey_Data$`Most Important Characteristic`)
+Typical_Employee_Survey_Data$`Likeliness For Promotion` <- as.factor(Typical_Employee_Survey_Data$`Likeliness For Promotion`)
+Typical_Employee_Survey_Data$`Decision Making` <- as.factor(Typical_Employee_Survey_Data$`Decision Making`)
+Typical_Employee_Survey_Data$`Budgetary Decisions` <- as.factor(Typical_Employee_Survey_Data$`Budgetary Decisions`)
+Typical_Employee_Survey_Data$Pride <- as.factor(Typical_Employee_Survey_Data$Pride)
+Typical_Employee_Survey_Data$`Likeliness To Stay` <- as.factor(Typical_Employee_Survey_Data$`Likeliness To Stay`)
+Typical_Employee_Survey_Data$Relations <- as.factor(Typical_Employee_Survey_Data$Relations)
+
+hist(Typical_Employee_Survey_Data$Age)
+barplot(Typical_Employee_Survey_Data$`Years Worked`)
+
+x <- Typical_Employee_Survey_Data$Age
+y <- Typical_Employee_Survey_Data$`Years Worked`
+plot(x, y, main = "Age vs Years Worked", xlab = "Age", ylab = "Years Worked")
+x <- Typical_Employee_Survey_Data$`Job Satisfaction`
+y <- Typical_Employee_Survey_Data$Age
+plot(x, y, main = "Age vs Job Satisfaction", xlab = "Job Satisfaction", ylab = "Age")
+
+
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
